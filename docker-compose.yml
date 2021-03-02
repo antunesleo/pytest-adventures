@@ -1,0 +1,11 @@
+version: '3'
+services:
+  playlists:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: playlists
+    volumes:
+    - ./:/app
+    environment:
+      PROJECT_PATH: /app
