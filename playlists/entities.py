@@ -1,14 +1,19 @@
-from dataclasses import dataclass
 from typing import List
+from uuid import UUID
 
 
-@dataclass
 class Music:
-    name: str
-    artist: str
+    def __init__(self, id: UUID, name: str, artist: str):
+        self.id = id
+        self.name = name
+        self.artist = artist
 
 
-@dataclass
 class Playlist:
-    name: str
-    musics: List[Music]
+    def __init__(self, id: UUID, name: str, musics: List[Music] = None):
+        self.id = id
+        self.name = name
+        self.musics = musics or []
+
+    def add_music(self, music: Music):
+        self.musics.append(music)
